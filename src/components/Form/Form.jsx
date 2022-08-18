@@ -1,61 +1,60 @@
-// import { useState } from 'react';
+// // import { useState } from 'react';
+// import {
+//   useCreateContactMutation,
+//   useFetchContactsQuery,
+// } from '../../redux/contactsSlice';
 // import style from './Form.module.css';
 
-// import { nanoid } from 'nanoid';
-// // import PropTypes from 'prop-types';
-// import { useSelector, useDispatch } from 'react-redux';
-// import { addItem, getItems } from '../../redux/contactsSlice';
+// // import { nanoid } from 'nanoid';
 
+// const initialValues = {
+//   name: '',
+//   number: '',
+// };
 // function Form() {
-//   const dispatch = useDispatch();
-//   const contacts = useSelector(getItems);
+//   const [createContact, { isLoading, isSuccess }] = useCreateContactMutation();
+//   const { data: contacts } = useFetchContactsQuery();
 
-//   const [name, setName] = useState('');
-//   const [number, setNumber] = useState('');
+//   // const [name, setName] = useState('');
+//   // const [number, setNumber] = useState('');
 
 //   // берем данные value каждого input
-//   const handleChange = evt => {
-//     const { name, value } = evt.currentTarget;
-//     switch (name) {
-//       case 'name':
-//         setName(value);
-//         break;
-//       case 'number':
-//         setNumber(value);
-//         break;
-//       default:
-//         break;
-//     }
-//   };
+//   // const handleChange = evt => {
+//   //   const { name, value } = evt.currentTarget;
+//   //   switch (name) {
+//   //     case 'name':
+//   //       setName(value);
+//   //       break;
+//   //     case 'number':
+//   //       setNumber(value);
+//   //       break;
+//   //     default:
+//   //       break;
+//   //   }
+//   // };
 
-//   const formSubmitHandler = contact => {
+//   const formSubmitHandler = values => {
 //     const normalzeName = contact.name.toLocaleLowerCase();
 
 //     contacts.find(contact => contact.name.toLocaleLowerCase() === normalzeName)
 //       ? alert(`${contact.name} is already in contacts`)
-//       : dispatch(addItem(contact));
+//       : createContact(contact);
 //   };
 //   // сабмит формы
 //   const handleSubmit = e => {
-//     const contact = {
-//       id: nanoid(),
-//       name,
-//       number,
-//     };
-
 //     e.preventDefault();
 //     formSubmitHandler(contact);
-//     reset();
-//     // console.log(this.state);
+//     // reset();
+//     console.log(this.state);
 //   };
 //   // обновление полей инпутов после нажатия сабмит
-//   const reset = () => {
-//     setName('');
-//     setNumber('');
-//   };
+//   // const reset = () => {
+//   //   setName('');
+//   //   setNumber('');
+//   // };
 
 //   return (
-//     <form onSubmit={handleSubmit}>
+//     <form initialValues={initialValues} onSubmit={handleSubmit}>
 //       <label className={style.label}>
 //         <span>Name</span>
 //         <input
@@ -65,7 +64,7 @@
 //           title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
 //           required
 //           value={name}
-//           onChange={handleChange}
+//           // onChange={handleChange}
 //           className={style.input}
 //         />
 //       </label>
@@ -78,7 +77,7 @@
 //           title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
 //           required
 //           value={number}
-//           onChange={handleChange}
+//           // onChange={handleChange}
 //           className={style.input}
 //         />
 //       </label>

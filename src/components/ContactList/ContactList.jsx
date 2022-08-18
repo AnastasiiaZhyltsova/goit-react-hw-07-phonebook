@@ -1,14 +1,10 @@
 import React from 'react';
 import style from './ContactList.module.css';
 import { useFetchContactsQuery } from '../../redux/contactsSlice';
-
-// import PropTypes from 'prop-types';
-// import { useDispatch, useSelector } from 'react-redux';
-// import { removeItem, getItems, getFilter } from '../../redux/contactsSlice';
+import { ContactsItem } from 'components/ContactsItem/ContactsItem';
 
 const ContactList = () => {
   const { data: contacts } = useFetchContactsQuery();
-  console.log(contacts);
 
   // const contacts = useSelector(getItems);
   // const filter = useSelector(getFilter);
@@ -23,25 +19,14 @@ const ContactList = () => {
   // const contactsFilter = getContactsFilter();
 
   return (
-    // <div>Hi</div>
     <div>
-      <ol className={style.contacts}>
-        {contacts.map(({ id, name, phone }) => (
-          <li key={id} className={style.contact}>
-            <p className={style.name}>{name} :</p>
-            <p className={style.number}>{phone}</p>
-
-            <button
-              className={style.button}
-              type="button"
-              // onClick={() => onDeleteContact(id)}
-              // onClick={() => dispatch(removeItem(id))}
-            >
-              Delete
-            </button>
-          </li>
-        ))}
-      </ol>
+      {contacts && (
+        <ol className={style.contacts}>
+          {contacts.map(contact => (
+            <ContactsItem key={contact.id} contact={contact} />
+          ))}
+        </ol>
+      )}
     </div>
   );
 };
