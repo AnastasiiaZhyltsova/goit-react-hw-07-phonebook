@@ -1,14 +1,14 @@
-// import Form from './Form';
-// import Filter from './Filter';
+import Form from './Form';
+import Filter from './Filter';
 import ContactList from './ContactList';
 
 function App() {
   return (
     <div>
       <h1>Phonebook</h1>
-      {/* <Form /> */}
+      <Form />
       <h2>Contacts</h2>
-      {/* <Filter /> */}
+      <Filter />
       <ContactList />
     </div>
   );
