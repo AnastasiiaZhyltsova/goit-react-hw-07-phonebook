@@ -17,7 +17,7 @@
 }
 
 .button {
-  min-width: 50px;
+  width: 56px;
   height: 25px;
   font-family: inherit;
   background-color: #2196f3;
@@ -25,4 +25,8 @@
   border-radius: 4px;
   color: white;
   font-size: 15px;
+
+  display: flex;
+  text-align: center;
+  justify-content: center;
 }

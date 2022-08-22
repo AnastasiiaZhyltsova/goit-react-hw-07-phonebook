@@ -2,14 +2,14 @@ import React from 'react';
 import style from './Filter.module.css';
 // import PropTypes from 'prop-types';
 import { useSelector, useDispatch } from 'react-redux';
-import { filterItems, getFilter } from '../../redux/filterSlice';
+import { filterSlice } from '../../redux';
 
 const Filter = () => {
   const dispatch = useDispatch();
-  const value = useSelector(getFilter);
+  const value = useSelector(filterSlice.getFilter);
 
   const changeFilter = e => {
-    dispatch(filterItems(e.currentTarget.value));
+    dispatch(filterSlice.filterItems(e.currentTarget.value));
   };
 
   return (

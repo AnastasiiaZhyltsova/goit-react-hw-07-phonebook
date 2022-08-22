@@ -1,8 +1,9 @@
 import style from './ContactsItem.module.css';
-import { useDeleteContactMutation } from '../../redux/contactsSlice';
-
+import { contactsSlice } from '../../redux';
+import { LoaderMini } from 'components/Loader/Loader';
 export const ContactsItem = ({ contact }) => {
-  const [deleteTodo, { isLoading: isDeleting }] = useDeleteContactMutation();
+  const [deleteTodo, { isLoading: isDeleting }] =
+    contactsSlice.useDeleteContactMutation();
 
   return (
     <li className={style.contact}>
@@ -15,7 +16,7 @@ export const ContactsItem = ({ contact }) => {
         onClick={() => deleteTodo(contact.id)}
         disabled={isDeleting}
       >
-        Delete
+        {isDeleting ? <LoaderMini /> : <span>Delete</span>}
       </button>
     </li>
   );
