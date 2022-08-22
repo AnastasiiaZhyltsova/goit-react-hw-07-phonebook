@@ -7,7 +7,6 @@ function Form() {
   const [createContact, { isLoading }] =
     contactsSlice.useCreateContactMutation();
   const { data: contacts } = contactsSlice.useFetchContactsQuery();
-  console.log(isLoading);
   const [name, setName] = useState('');
   const [phone, setPhone] = useState('');
 

@@ -1,4 +1,6 @@
 import style from './ContactsItem.module.css';
+import PropTypes from 'prop-types';
+
 import { contactsSlice } from '../../redux';
 import { LoaderMini } from 'components/Loader/Loader';
 export const ContactsItem = ({ contact }) => {
@@ -20,4 +22,12 @@ export const ContactsItem = ({ contact }) => {
       </button>
     </li>
   );
+};
+
+ContactsItem.propTypes = {
+  contact: PropTypes.shape({
+    name: PropTypes.string.isRequired,
+    phone: PropTypes.string.isRequired,
+    id: PropTypes.string.isRequired,
+  }),
 };
